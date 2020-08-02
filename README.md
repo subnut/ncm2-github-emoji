@@ -1,7 +1,7 @@
 # ncm2-github-emoji
 GitHub emoji source for NCM2
 
-Clone this repository using your favourite package-manager, and run `install.py`
+Clone this repository using your favourite package-manager, and run `install.py`  
 e.g. For [vim-plug](https://github.com/junegunn/vim-plug):
 ```
 Plug 'subnut/ncm2-github-emoji', { 'do': './install.py' }
