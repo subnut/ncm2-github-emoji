@@ -23,36 +23,36 @@ to_write = r"""if get(s:, 'loaded', 0)
 endif
 let s:loaded = 1
 
-let g:ncm2_emoji#proc = yarp#py3('ncm2_emoji')
-let g:ncm2_emoji#proc.on_load = 'ncm2_emoji#on_load'
+let g:ncm2_github_emoji#proc = yarp#py3('ncm2_github_emoji')
+let g:ncm2_github_emoji#proc.on_load = 'ncm2_github_emoji#on_load'
 
-func! ncm2_emoji#init()
-    call ncm2#register_source(g:ncm2_emoji#emoji_source)
+func! ncm2_github_emoji#init()
+    call ncm2#register_source(g:ncm2_github_emoji#emoji_source)
 endfunc
 
-func! ncm2_emoji#on_warmup(ctx)
-    call g:ncm2_emoji#proc.jobstart()
+func! ncm2_github_emoji#on_warmup(ctx)
+    call g:ncm2_github_emoji#proc.jobstart()
 endfunc
 
 " emoji
 
 " # character doesn't work well with abbreviation match
-let g:ncm2_emoji#emoji_source = extend(
-                        \ get(g:, 'ncm2_emoji#emoji_source', {}), {
+let g:ncm2_github_emoji#emoji_source = extend(
+                        \ get(g:, 'ncm2_github_emoji#emoji_source', {}), {
             \ 'name': 'github-emoji',
             \ 'scope': ['gitcommit', 'markdown', 'magit'],
             \ 'priority': 8,
-            \ 'mark': 'emoji',
-            \ 'on_complete': 'ncm2_emoji#on_complete_emoji',
+            \ 'mark': 'gh-emoji',
+            \ 'on_complete': 'ncm2_github_emoji#on_complete_emoji',
             \ 'word_pattern': ':[\w+-]*:?',
             \ 'complete_length': 2,
             \ }, 'keep')
 
-func! ncm2_emoji#on_complete_emoji(ctx)
+func! ncm2_github_emoji#on_complete_emoji(ctx)
     let matches = [""" + final + r"""
 \ ]
         call ncm2#complete(a:ctx, a:ctx.startccol, matches)
 endfunc"""
 
-with open('autoload/ncm2_emoji.vim', 'w') as write_file:
+with open('autoload/ncm2_github_emoji.vim', 'w') as write_file:
     write_file.write(to_write)
