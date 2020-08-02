@@ -22,7 +22,7 @@ let g:ncm2_github_emoji#emoji_source = extend(
             \ 'name': 'github-emoji',
             \ 'scope': ['gitcommit', 'markdown', 'magit'],
             \ 'priority': 8,
-            \ 'mark': 'gh-emoji',
+            \ 'mark': 'ghe',
             \ 'on_complete': 'ncm2_github_emoji#on_complete_emoji',
             \ 'word_pattern': ':[\w+-]*:?',
             \ 'complete_length': 2,
