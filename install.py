@@ -1,6 +1,25 @@
 #!/bin/python3
 
-from requests import get
+requests_installed = False
+try:
+    from requests import get
+except ModuleNotFoundError:
+    print("'requests' module is needed to run install.py")
+    import os
+    if os.name == 'posix':
+        print("Trying to install it ...")
+        def run(command):
+            from subprocess import PIPE, Popen
+            process = Popen(["sh",  "-c", command], stdout=PIPE, stderr=PIPE, text is True)
+            stdout, stderr = process.communicate()
+            exitcode = process.returncode
+            return {'stdout': stdout, 'stderr': stderr, 'exitcode': exitcode}
+        if run('pip3 install requests')['exitcode'] != 0:
+            print("Could not install\nPlease install the 'requests' module and re-run this script")
+            exit(1)
+        requests_installed = True
+    exit(1)
+
 
 # the API is inconsistent.
 # So remove all \n, and also remove the { and } from the beginning and the end
@@ -56,3 +75,5 @@ endfunc"""
 
 with open('autoload/ncm2_github_emoji.vim', 'w') as write_file:
     write_file.write(to_write)
+if requests_installed:
+    run('pip3 uninstall requests')
