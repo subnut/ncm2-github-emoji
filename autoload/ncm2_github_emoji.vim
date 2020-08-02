@@ -25,7 +25,7 @@ let g:ncm2_github_emoji#emoji_source = extend(
             \ 'mark': 'ghe',
             \ 'on_complete': 'ncm2_github_emoji#on_complete_emoji',
             \ 'word_pattern': ':[\w+-]*:?',
-            \ 'complete_length': 2,
+            \ 'complete_length': 1,
             \ }, 'keep')
 
 func! ncm2_github_emoji#on_complete_emoji(ctx)
