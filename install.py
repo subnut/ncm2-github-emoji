@@ -6,16 +6,23 @@ try:
 except ModuleNotFoundError:
     print("'requests' module is needed to run install.py")
     import os
-    if os.name == 'posix':
+
+    if os.name == "posix":
         print("Trying to install it ...")
+
         def run(command):
             from subprocess import PIPE, Popen
-            process = Popen(["sh",  "-c", command], stdout=PIPE, stderr=PIPE, text=True)
+
+            process = Popen(["sh", "-c", command], stdout=PIPE, stderr=PIPE, text=True)
             stdout, stderr = process.communicate()
             exitcode = process.returncode
-            return {'stdout': stdout, 'stderr': stderr, 'exitcode': exitcode}
-        if run('pip3 install requests')['exitcode'] != 0:
-            print("Could not install\nPlease install the 'requests' module and re-run this script")
+            return {"stdout": stdout, "stderr": stderr, "exitcode": exitcode}
+
+        if run("pip3 install requests")["exitcode"] != 0:
+            print(
+                """Could not install
+Please install the 'requests' module and re-run this script"""
+            )
             exit(1)
         requests_installed = True
         print("Installed successfully!")
@@ -26,21 +33,22 @@ from requests import get
 
 # the API is inconsistent.
 # So remove all \n, and also remove the { and } from the beginning and the end
-api_response = get('https://api.github.com/emojis').text.replace('\n', '')[1:-1]
-emoji_list = api_response.split(',')
+api_response = get("https://api.github.com/emojis").text.replace("\n", "")[1:-1]
+emoji_list = api_response.split(",")
 final = ""
 for entry in emoji_list:
-    shortcode_raw, https, url = entry.split(':')
+    shortcode_raw, https, url = entry.split(":")
     shortcode_raw = shortcode_raw.strip()
     shortcode_raw = shortcode_raw.strip('"')
-    shortcode = ":" + shortcode_raw + ':'
-    codepoint_list = url[url.rfind('/')+1:url.find('.png')].split('-')
-    codepoint = r''
+    shortcode = ":" + shortcode_raw + ":"
+    codepoint_list = url[url.rfind("/") + 1 : url.find(".png")].split("-")
+    codepoint = r""
     for point in codepoint_list:
-        codepoint += r'\U' + point
-    final += '\n' + r'\ {"word": "' + shortcode + r'", "menu": "' + codepoint + ' "},'
+        codepoint += r"\U" + point
+    final += "\n" + r'\ {"word": "' + shortcode + r'", "menu": "' + codepoint + ' "},'
 
-to_write = r"""if get(s:, 'loaded', 0)
+to_write = (
+    r"""if get(s:, 'loaded', 0)
     finish
 endif
 let s:loaded = 1
@@ -71,20 +79,23 @@ let g:ncm2_github_emoji#emoji_source = extend(
             \ }, 'keep')
 
 func! ncm2_github_emoji#on_complete_emoji(ctx)
-    let matches = [""" + final + r"""
+    let matches = ["""
+    + final
+    + r"""
 \ ]
         call ncm2#complete(a:ctx, a:ctx.startccol, matches)
 endfunc"""
+)
 
 try:
-    open('autoload/ncm2_github_emoji.vim').close()
+    open("autoload/ncm2_github_emoji.vim").close()
 except FileNotFoundError:
     import os
-    os.mkdir('autoload')
-finally:
-    with open('autoload/ncm2_github_emoji.vim', 'w') as write_file:
-        write_file.write(to_write)
 
+    os.mkdir("autoload")
+finally:
+    with open("autoload/ncm2_github_emoji.vim", "w") as write_file:
+        write_file.write(to_write)
 
 
 if requests_installed:
