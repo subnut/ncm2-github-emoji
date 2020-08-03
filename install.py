@@ -76,8 +76,16 @@ func! ncm2_github_emoji#on_complete_emoji(ctx)
         call ncm2#complete(a:ctx, a:ctx.startccol, matches)
 endfunc"""
 
-with open('autoload/ncm2_github_emoji.vim', 'w') as write_file:
-    write_file.write(to_write)
+try:
+    open('autoload/ncm2_github_emoji.vim').close()
+except FileNotFoundError:
+    import os
+    os.mkdir('autoload')
+finally:
+    with open('autoload/ncm2_github_emoji.vim', 'w') as write_file:
+        write_file.write(to_write)
+
+
 
 if requests_installed:
     print("Requests was installed. Uninstalling it ...")
