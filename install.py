@@ -45,7 +45,7 @@ for entry in emoji_list:
     codepoint = r""
     for point in codepoint_list:
         codepoint += r"\U" + point
-    final += "\n" + r'\ {"word": "' + shortcode + r'", "menu": "' + codepoint + ' "},'
+    final += "\n" + r"\ {'word': '" + shortcode + r"', 'menu': '" + codepoint + " '},"
 
 to_write = (
     r"""if get(s:, 'loaded', 0)
@@ -56,11 +56,11 @@ let s:loaded = 1
 let g:ncm2_github_emoji#proc = yarp#py3('ncm2_github_emoji')
 let g:ncm2_github_emoji#proc.on_load = 'ncm2_github_emoji#on_load'
 
-func! ncm2_github_emoji#init()
+func! ncm2_github_emoji#init() abort
     call ncm2#register_source(g:ncm2_github_emoji#emoji_source)
 endfunc
 
-func! ncm2_github_emoji#on_warmup(ctx)
+func! ncm2_github_emoji#on_warmup(ctx) abort
     call g:ncm2_github_emoji#proc.jobstart()
 endfunc
 
@@ -78,7 +78,7 @@ let g:ncm2_github_emoji#emoji_source = extend(
             \ 'complete_length': 1,
             \ }, 'keep')
 
-func! ncm2_github_emoji#on_complete_emoji(ctx)
+func! ncm2_github_emoji#on_complete_emoji(ctx) abort
     let matches = ["""
     + final
     + r"""
