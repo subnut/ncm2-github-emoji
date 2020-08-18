@@ -13,7 +13,7 @@ jobs:
       - name: Setup dependencies
         run: pip install requests
       - name: Install
-        run: python install.py
+        run: install.py
   Windows:
     runs-on: windows-latest
     steps:
@@ -24,9 +24,9 @@ jobs:
         with:
           python-version: 3.7
       - name: Setup dependencies
-        run: python -m pip install requests
+        run: pip install requests
       - name: Install
-        run: python install.py
+        run: install.py
   macOS:
     runs-on: macos-latest
     steps:
@@ -37,6 +37,6 @@ jobs:
         with:
           python-version: 3.7
       - name: Setup dependencies
-        run: python -m pip install requests
+        run: pip install requests
       - name: Install
-        run: python install.py
+        run: install.py
