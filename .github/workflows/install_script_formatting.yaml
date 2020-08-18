@@ -1,0 +1,16 @@
+name: Check install.py formatting
+on: [push, pull_request]
+jobs:
+  Black:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Setup dependencies
+        run: pip install black
+      - name: Run Black
+        run: black --check install.py
