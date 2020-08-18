@@ -14,7 +14,7 @@ python install.py
 
 This pulls the latest emojis from GitHub's API and **creates the actual plugin** file.
 
-### Advanced installation (using plugin managers)
+### For Linux & macOS users
 
 Some notes -
 * If `pip` is executable and in your `PATH`, you can directly run `install.py` without caring about `requests`
