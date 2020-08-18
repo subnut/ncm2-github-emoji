@@ -110,6 +110,6 @@ if requests_installed:
     stdout, stderr = process.communicate()
     exitcode = process.returncode
     if exitcode != 0:
-        exit(10)
+        exit(1)
     else:
-        print("Uninstalled successfully")
+        print("Uninstalled successfully!")
