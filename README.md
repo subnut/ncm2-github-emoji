@@ -26,3 +26,6 @@ Plug 'subnut/ncm2-github-emoji', { 'do': './install.py' }
 ```
 
 And the plugin manager shall take care of all the above stuff itself. Every time the plugin updates. Yay!
+
+## Known Issues
+* Preview does not work for GitHub-special emojis

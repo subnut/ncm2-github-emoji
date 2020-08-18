@@ -45,7 +45,12 @@ for entry in emoji_list:
     codepoint = r""
     for point in codepoint_list:
         codepoint += r"\U" + point
-    final += "\n" + r"\ {'word': '" + shortcode + r"', 'menu': '" + codepoint + " '},"
+    if codepoint.replace("\\", "").replace(" ", "")[:-1].isalpha():
+        # GitHub special - No unicode codepoint
+        codepoint = "' '"
+    else:
+        codepoint = '"' + codepoint + ' "'
+    final += "\n" + r"\ {'word': '" + shortcode + r"', 'menu': " + codepoint + "},"
 
 to_write = (
     r"""if get(s:, 'loaded', 0)
