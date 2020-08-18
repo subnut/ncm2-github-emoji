@@ -5,29 +5,25 @@ try:
     import requests
 except ModuleNotFoundError:
     print("'requests' module is needed to run install.py")
-    import os
+    print("Trying to install it ...")
+    from subprocess import PIPE, Popen
 
-    if os.name == "posix":
-        print("Trying to install it ...")
-
-        def run(command):
-            from subprocess import PIPE, Popen
-
-            process = Popen(["sh", "-c", command], stdout=PIPE, stderr=PIPE, text=True)
-            stdout, stderr = process.communicate()
-            exitcode = process.returncode
-            return {"stdout": stdout, "stderr": stderr, "exitcode": exitcode}
-
-        if run("pip3 install requests")["exitcode"] != 0:
-            print(
-                """Could not install
+    process = Popen(
+        ["python", "-m", "pip", "install", "requests"],
+        stdout=PIPE,
+        stderr=PIPE,
+        text=True,
+    )
+    stdout, stderr = process.communicate()
+    exitcode = process.returncode
+    if exitcode != 0:
+        print(
+            """Could not install
 Please install the 'requests' module and re-run this script"""
-            )
-            exit(1)
-        requests_installed = True
-        print("Installed successfully!")
-    else:
+        )
         exit(1)
+    requests_installed = True
+    print("Installed successfully!")
 
 from requests import get
 
@@ -35,6 +31,7 @@ from requests import get
 # So remove all \n, and also remove the { and } from the beginning and the end
 api_response = get("https://api.github.com/emojis").text.replace("\n", "")[1:-1]
 emoji_list = api_response.split(",")
+
 final = ""
 for entry in emoji_list:
     shortcode_raw, https, url = entry.split(":")
@@ -102,7 +99,17 @@ finally:
     with open("autoload/ncm2_github_emoji.vim", "w") as write_file:
         write_file.write(to_write)
 
-
 if requests_installed:
     print("Requests was installed. Uninstalling it ...")
-    run("pip3 uninstall requests --no-input --yes")
+    process = Popen(
+        ["python", "-m", "pip", "uninstall", "requests", "-y"],
+        stdout=PIPE,
+        stderr=PIPE,
+        text=True,
+    )
+    stdout, stderr = process.communicate()
+    exitcode = process.returncode
+    if exitcode != 0:
+        exit(10)
+    else:
+        print("Uninstalled successfully")

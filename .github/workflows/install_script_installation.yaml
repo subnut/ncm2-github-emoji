@@ -14,8 +14,9 @@ jobs:
         run: pip install requests
       - name: Install
         run: python install.py
-  Windows:
-    runs-on: windows-latest
+
+  macOS:
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -27,8 +28,9 @@ jobs:
         run: pip install requests
       - name: Install
         run: python install.py
-  macOS:
-    runs-on: macos-latest
+
+  Windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
