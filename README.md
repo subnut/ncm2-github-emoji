@@ -1,13 +1,18 @@
-# ncm2-github-emoji
-<span style="display:block;text-align:center">
-
-[![GitHub stars](https://img.shields.io/github/stars/subnut/ncm2-github-emoji?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji) [![GitHub issues](https://img.shields.io/github/issues/subnut/ncm2-github-emoji?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji/issues) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/subnut/ncm2-github-emoji/Check%20if%20install.py%20can%20run%20without%20requests%20module%20pre-installed/master?style=for-the-badge&logo=github)
+# ncm2-github-emoji &nbsp; [![Github repo link](https://img.shields.io/badge/view%20on%20github-black?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji "Github repo link")
+<p align="center">
+<img alt="Windows" src="https://img.shields.io/badge/Windows-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=0078D6">
+<img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white&color=EBB513">
+<img alt="macOS" src="https://img.shields.io/badge/macOS-999999?style=for-the-badge&logo=apple&logoColor=white&color=999999">
+<a href="https://neovim.io"><img alt="neovim" src="https://img.shields.io/badge/neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white"></a>
 <br/>
-![Windows](https://img.shields.io/badge/Windows-supported-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=0078D6) ![Linux](https://img.shields.io/badge/Linux-supported-FCC624?style=for-the-badge&logo=linux&logoColor=white&color=FCC624) ![macOS](https://img.shields.io/badge/macOS-supported-999999?style=for-the-badge&logo=apple&logoColor=white&color=999999)
+<a href="https://github.com/subnut/ncm2-github-emoji"><img alt="GitHub stars" src="https://img.shields.io/github/stars/subnut/ncm2-github-emoji?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/subnut/ncm2-github-emoji/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/subnut/ncm2-github-emoji?style=for-the-badge&logo=github"></a>
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/subnut/ncm2-github-emoji/Check%20if%20install.py%20can%20run%20without%20requests%20module%20pre-installed/master?style=for-the-badge&logo=github">
 <br/>
-![Neovim](https://img.shields.io/badge/Neovim-Tested-brightgreen?style=for-the-badge&logo=neovim&logoColor=brightgreen) [![Code style: black](https://img.shields.io/badge/code%20style-black-lightgrey?style=for-the-badge&color=000)](https://github.com/psf/black) [![GitHub license](https://img.shields.io/github/license/subnut/ncm2-github-emoji?style=for-the-badge)](https://github.com/subnut/ncm2-github-emoji/blob/master/LICENSE)
-
-</span>
+<a href="https://github.com/subnut"><img alt="Author" src="https://img.shields.io/badge/Author-subnut-brightgreen?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-lightgrey?style=for-the-badge&color=000"></a>
+<a href="https://github.com/subnut/ncm2-github-emoji/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/subnut/ncm2-github-emoji?style=for-the-badge"></a>
+</p>
 <br/>
 
 GitHub emoji source for [NCM2](https://github.com/ncm2/ncm2)
