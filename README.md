@@ -1,5 +1,4 @@
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-# ncm2-github-emoji
+# ncm2-github-emoji  [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 GitHub emoji source for [NCM2](https://github.com/ncm2/ncm2)
 
 <p align="center">
