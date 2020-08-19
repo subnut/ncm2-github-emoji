@@ -2,6 +2,10 @@
 # ncm2-github-emoji
 GitHub emoji source for [NCM2](https://github.com/ncm2/ncm2)
 
+<p align="center">
+<img src="screenshot.png" caption="Screenshot" alt="screenshot">
+</p>
+
 ## Installation
 
 ### Basic installation
