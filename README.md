@@ -1,4 +1,4 @@
-# ncm2-github-emoji &nbsp; [![Github repo link](https://img.shields.io/badge/view%20on%20github-black?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji "Github repo link")
+# ncm2-github-emoji [![Github repo link](https://img.shields.io/badge/view%20on%20github-black?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji "Github repo link")
 <p align="center">
 <img alt="Windows" src="https://img.shields.io/badge/Windows-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=0078D6">
 <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white&color=EBB513">
