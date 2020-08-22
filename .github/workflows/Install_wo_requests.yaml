@@ -1,4 +1,4 @@
-name: Check if install.py can run without requests module pre-installed
+name: Install (requests not installed)
 on: [push, pull_request]
 jobs:
   Linux:

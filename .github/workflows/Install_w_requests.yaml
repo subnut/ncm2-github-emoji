@@ -1,4 +1,4 @@
-name: Check if install.py runs without errors
+name: Install (requests preinstalled)
 on: [push, pull_request]
 jobs:
   Linux:
