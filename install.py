@@ -2,7 +2,7 @@
 
 requests_installed = False
 try:
-    import requests
+    from requests import get
 except ModuleNotFoundError:
     print("'requests' module is needed to run install.py")
     print("Trying to install it ...")
@@ -24,8 +24,8 @@ Please install the 'requests' module and re-run this script"""
         exit(1)
     requests_installed = True
     print("Installed successfully!")
-
-from requests import get
+finally:
+    from requests import get
 
 # the API is inconsistent.
 # So remove all \n, and also remove the { and } from the beginning and the end
