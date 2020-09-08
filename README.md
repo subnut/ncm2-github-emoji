@@ -1,7 +1,7 @@
 # ncm2-github-emoji [![Github repo link](https://img.shields.io/badge/view%20on%20github-black?style=for-the-badge&logo=github)](https://github.com/subnut/ncm2-github-emoji "Github repo link")
 <p align="center">
 <img alt="Windows" src="https://img.shields.io/badge/Windows-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=0078D6">
-<img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black&color=EBB513">
+<img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
 <img alt="macOS" src="https://img.shields.io/badge/macOS-999999?style=for-the-badge&logo=apple&logoColor=white&color=999999">
 <a href="https://neovim.io"><img alt="neovim" src="https://img.shields.io/badge/neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white"></a>
 <br/>
