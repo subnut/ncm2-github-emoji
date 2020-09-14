@@ -15,6 +15,8 @@ jobs:
       - name: Run Black
         run: black --check install.py
   Commit & Push:
+    needs: Check
+    if: ${{ needs.Check.result == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
