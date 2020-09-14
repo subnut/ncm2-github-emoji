@@ -14,7 +14,7 @@ jobs:
         run: pip install black
       - name: Run Black
         run: black --check install.py
-  Commit & Push:
+  Commit_and_Push:
     needs: Check
     if: ${{ needs.Check.result == 'failure' }}
     runs-on: ubuntu-latest
