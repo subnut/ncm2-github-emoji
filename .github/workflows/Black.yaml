@@ -1,0 +1,38 @@
+name: Black
+on: [push, pull_request]
+jobs:
+  Check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Setup dependencies
+        run: pip install black
+      - name: Run Black
+        run: black --check install.py
+  Commit & Push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PUSH_TOKEN_SUBNUT_PAT }}
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Setup dependencies
+        run: pip install black
+      - name: Blacken install.py
+        run: black install.py
+      - name: Commit & Push
+        run: |
+          git config user.name ${{ github.ACTOR }}
+          git config user.email sn03.general@gmail.com
+          git commit --all -m "[GitHub Action] Blacken install.py"
+          git push
+
