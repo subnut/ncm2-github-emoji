@@ -14,9 +14,9 @@ jobs:
         run: pip install black
       - name: Run Black
         run: black --check install.py
-  Commit_and_Push:
+  Fix:
     needs: Check
-    if: ${{ needs.Check.result == 'failure' }}
+    if: ${{ !success() || cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,6 +35,6 @@ jobs:
         run: |
           git config user.name ${{ github.ACTOR }}
           git config user.email sn03.general@gmail.com
-          git commit --all -m "[GitHub Action] Blacken install.py"
+          git commit --all -m "[Chore] Autoformat install.py"
           git push
 
