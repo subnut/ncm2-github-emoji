@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.PUSH_TOKEN_SUBNUT_PAT }}
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -33,8 +31,8 @@ jobs:
         run: black install.py
       - name: Commit & Push
         run: |
-          git config user.name ${{ github.ACTOR }}
-          git config user.email sn03.general@gmail.com
-          git commit --all -m "[Chore] Autoformat install.py"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit --all -m "Autoformat install.py"
           git push
 
