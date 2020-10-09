@@ -25,20 +25,31 @@ GitHub emoji source for [NCM2](https://github.com/ncm2/ncm2)
 
 ### Basic installation
 
+Install this plugin just like you install other plugins
+
+### Usage
+
+- This plugin includes a pre-built list of emojis, up-to-date till the last commit on this repo
+- If you think that this list is too old, then run `python install.py` at the base directory of this plugin
+- Before running the above command, please ensure that you have internet connectivity
+
+<!--
+### Basic installation
+
 Install it like you would install any other plugin. Then, at the plugin's installation directory (i.e. which contains `install.py`) run the following command -
 ```
 python install.py
 ```
 This pulls the latest emojis from GitHub's API and **creates the actual plugin** file.
 
-
 ### Installation using plugin managers
 Some plugin managers support running a command after a plugin has been installed. Check with the plugin developer if yours supports it. If yes, you can simply do something like this (example is of [vim-plug](https://github.com/junegunn/vim-plug))
 ```
 Plug 'subnut/ncm2-github-emoji', { 'do': 'python install.py' }
 ```
+-->
 
 <br/>
 
 ## Known Issues
-* Preview does not work for GitHub-special emojis
+* Emoji preview does not work for GitHub-special emojis

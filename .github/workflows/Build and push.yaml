@@ -1,0 +1,41 @@
+name: Update included emojis
+on: push
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Generate plugin file
+        run: python install.py
+      - name: Check changes
+        run: |
+          git add --force autoload/ncm2_github_emoji.vim
+          git diff --staged --exit-code autoload/ncm2_github_emoji.vim
+  Push:
+    needs: Build
+    if: ${{ !success() || cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+              token: ${{ secrets.PUSH_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Generate plugin file
+        run: python install.py
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add --force autoload/ncm2_github_emoji.vim
+          git commit -m "[bot] Chore: update included emojis"
+          git push
+
