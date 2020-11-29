@@ -39,6 +39,6 @@ jobs:
         with:
           python-version: 3.7
       - name: Setup dependencies
-        run: pip install requests
+        run: pip install requests pynvim
       - name: Install
         run: python install.py
